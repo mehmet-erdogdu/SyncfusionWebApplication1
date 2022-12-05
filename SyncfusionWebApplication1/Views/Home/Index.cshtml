@@ -1,0 +1,53 @@
+﻿@model SyncfusionWebApplication1.Data.Test
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    <ejs-calendar id="calendar"></ejs-calendar>
+</div>
+
+<div>
+    <ejs-grid id="Grid"
+              allowPaging="true"
+              allowSorting="true"
+              allowFiltering="true"
+              allowResizing="true"
+              allowExcelExport="true"
+              allowSelection="true">
+        <e-data-manager url="@Url.Action("Source")" adaptor="UrlAdaptor"></e-data-manager>
+        <e-grid-filterSettings type="Menu" mode="Immediate" showFilterBarOperator="true"></e-grid-filterSettings>
+        <e-grid-pagesettings pageSizes="true"></e-grid-pagesettings>
+        <e-grid-columns>
+            <e-grid-column field="@Html.NameFor(_ => _.Id)"
+                           headerText="@Html.DisplayNameFor(_ => _.Id)"
+                           filter=@(new { @operator = "contains" })>
+            </e-grid-column>
+            
+            <e-grid-column field="@Html.NameFor(_ => _.DateValue)"
+                           headerText="@Html.DisplayNameFor(_ => _.DateValue)"
+                           filter=@(new { @operator = "contains" })>
+            </e-grid-column>
+            
+            <e-grid-column field="@Html.NameFor(_ => _.Name)"
+                           headerText="@Html.DisplayNameFor(_ => _.Name)"
+                           filter=@(new { @operator = "contains" })>
+            </e-grid-column>
+            
+            <e-grid-column field="@Html.NameFor(_ => _.DecimalValue)"
+                           headerText="@Html.DisplayNameFor(_ => _.DecimalValue)">
+            </e-grid-column>
+            
+            <e-grid-column field="@Html.NameFor(_ => _.Id)"
+                           headerText="@Html.DisplayNameFor(_ => _.Id)"
+                           filter=@(new { @operator = "contains" })>
+            </e-grid-column>
+        </e-grid-columns>
+    </ejs-grid>
+</div>
